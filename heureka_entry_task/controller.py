@@ -110,7 +110,9 @@ class Controller:
         async with self.async_session() as session:
             select_astronaut = await session.get(DB_astronaut, id)
             select_astronaut.health_status = (
-                health_status if health_status is not None else select_astronaut.health_status
+                health_status
+                if health_status is not None
+                else select_astronaut.health_status
             )
             select_astronaut.first_name = (
                 first_name if first_name else select_astronaut.first_name
@@ -123,5 +125,3 @@ class Controller:
                 nationality if nationality else select_astronaut.nationality
             )
             await session.commit()
-
-

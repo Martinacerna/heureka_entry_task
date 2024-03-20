@@ -19,6 +19,7 @@ async def test_create(astronaut_fixture):
     assert test_astronaut.first_name == astronaut_fixture.first_name
     assert test_astronaut.health_status == astronaut_fixture.health_status
 
+
 @pytest.mark.asyncio
 async def test_update_astronaut(astronaut_fixture):
     controller = Controller(async_session)
@@ -37,15 +38,14 @@ async def test_update_astronaut(astronaut_fixture):
         first_name="Aegir",
         last_name="Yuki",
         age=3,
-        nationality="CZ")
+        nationality="CZ",
+    )
 
     get_astronaut = await controller.read_single_astronaut(id=test_astronaut.id)
 
     assert get_astronaut.first_name == "Aegir"
     assert get_astronaut.last_name == "Yuki"
     assert get_astronaut.age == 3
-
-
 
 
 # next to do:
