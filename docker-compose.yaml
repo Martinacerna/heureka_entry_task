@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+  astronaut_db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: astronaut_db
+    ports:
+      - 5432:5432
+    expose:
+      - "5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data:cached
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"  # RabbitMQ default port
+      - "15672:15672"  # RabbitMQ management console port
+  test_astronaut_db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: test_astronaut_db
+    ports:
+      - 5434:5432
+    expose:
+      - "5434"
+    volumes:
+      - test_db-data:/var/lib/postgresql/data:cached
+volumes:
+  db-data:
+  test_db-data:
