@@ -8,7 +8,6 @@ This project is a part of the Heureka Entry Task.
 
 - Python 3.7+ (written in Python 3.12)
 - Docker
-- Colima
 - Poetry as a dependency management and packaging tool.
 - RabbitMQ
 - PostgreSQL
@@ -25,11 +24,6 @@ uvicorn heureka_entry_task.app:app --reload
 FastAPI is running on address http://127.0.0.1:8000/docs#/
 
 ### Run RabbitMQ and Database
-Start Colima:
-
-```bash
-colima start
-```
 
 Run Docker Compose:
 ```bash
