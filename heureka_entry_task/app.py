@@ -61,13 +61,14 @@ async def update_astronaut(
     nationality: str | None = None,
 ) -> None:
     await Controller(async_session).update_astronaut(
-        id,
-        health_status, first_name, last_name, age, nationality
+        id, health_status, first_name, last_name, age, nationality
     )
     logger.info(
         f"Astronaut's with {id} details were updated: health status: {health_status}, first name: {first_name}, last name: {last_name}, age: {age}, nationality: {nationality}."
     )
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)

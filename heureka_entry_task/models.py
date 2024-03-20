@@ -7,9 +7,11 @@ class Astronaut(BaseModel):
     )
     first_name: str = Field(description="First name of the astronaut.", example="Aegir")
     last_name: str = Field(description="Last name of the astronaut.", example="Yuki")
-    age: int = Field(description="Age of the astronaut.", example= 3)
+    age: int = Field(description="Age of the astronaut.", example=3)
     nationality: str = Field(description="Nationality of the astronaut.", example="CZ")
-    health_status: bool = Field(description="Informs about the health status of the person .", example="true")
+    health_status: bool = Field(
+        description="Informs about the health status of the person .", example="true"
+    )
 
 
 class AstronautCreate(BaseModel):

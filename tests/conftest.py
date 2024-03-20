@@ -21,11 +21,13 @@ async def create_tables():
         await conn.run_sync(Base.metadata.create_all)
     yield
 
+
 @pytest.fixture(scope="session", autouse=True)
 def event_loop(request):
     loop = asyncio.get_event_loop_policy().new_event_loop()
     yield loop
     loop.close()
+
 
 @pytest.fixture()
 def astronaut_fixture():
